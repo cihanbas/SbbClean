@@ -1,0 +1,49 @@
+### Tüm ürünleri getir (boş gelecek, henüz veri yok)
+GET http://localhost:5021/api/urun
+
+### Ürün ekle
+POST http://localhost:5021/api/urun
+Content-Type: application/json
+
+{
+  "Ad": "Android",
+  "Fiyat": 125000,
+  "StokAdedi": 10,
+  "kategoriId": 1
+}
+
+### Ekledikten sonra tekrar getir
+GET http://localhost:5021/api/urun
+
+### ID ile getir
+GET http://localhost:5021/api/urun/1
+
+### ID ile getir
+GET http://localhost:5021/api/category
+
+### Yazarlari getir
+GET http://localhost:5021/api/yazar
+
+### Yazar ekle
+POST http://localhost:5021/api/yazar
+Content-Type: application/json
+
+{ 
+  "Ad": "Cihan BAS",
+  "Soyad": "BAS"
+}
+
+### Yazarlar
+GET http://localhost:5021/api/yazar
+
+### Kitap ekle
+POST http://localhost:5021/api/Kitap
+Content-Type: application/json
+
+{
+  "Title": "Lotr",
+  "YazarId": 2
+}
+
+### Yazarlar
+GET http://localhost:5021/api/kitap

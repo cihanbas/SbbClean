@@ -1,0 +1,15 @@
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/bin/Debug/net10.0/SBBClean.Application.deps.json
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/bin/Debug/net10.0/SBBClean.Application.dll
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/bin/Debug/net10.0/SBBClean.Application.pdb
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/bin/Debug/net10.0/SBBClean.Domain.dll
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/bin/Debug/net10.0/SBBClean.Domain.pdb
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/obj/Debug/net10.0/SBBClean.Application.csproj.AssemblyReference.cache
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/obj/Debug/net10.0/SBBClean.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/obj/Debug/net10.0/SBBClean.Application.AssemblyInfoInputs.cache
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/obj/Debug/net10.0/SBBClean.Application.AssemblyInfo.cs
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/obj/Debug/net10.0/SBBClean.Application.csproj.CoreCompileInputs.cache
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/obj/Debug/net10.0/SBBClean.ACCF7591.Up2Date
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/obj/Debug/net10.0/SBBClean.Application.dll
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/obj/Debug/net10.0/refint/SBBClean.Application.dll
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/obj/Debug/net10.0/SBBClean.Application.pdb
+/Users/cihanbas/Documents/SBB/SBBClean/SBBClean.Application/obj/Debug/net10.0/ref/SBBClean.Application.dll

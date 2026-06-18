@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="SBBClean.API/SBBClean.API.csproj" />
+  <Project Path="SBBClean.Application/SBBClean.Application.csproj" />
+  <Project Path="SBBClean.Domain/SBBClean.Domain.csproj" />
+  <Project Path="SBBClean.Infrastructure/SBBClean.Infrastructure.csproj" />
+</Solution>

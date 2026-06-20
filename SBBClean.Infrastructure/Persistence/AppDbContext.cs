@@ -13,4 +13,5 @@ public class AppDbContext : DbContext
     public DbSet<Kategori> Kategoriler { get; set; }
     public DbSet<Yazar> Yazarler { get; set; }
     public DbSet<Kitap> Kitaplar { get; set; }
+    public DbSet<AppUser> Users { get; set; }
 }

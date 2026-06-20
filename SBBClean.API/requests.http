@@ -1,4 +1,49 @@
-### Tüm ürünleri getir (boş gelecek, henüz veri yok)
+
+
+### Kullanici kaydet (token döner, otomatik login)
+POST http://localhost:5021/api/auth/register
+Content-Type: application/json
+
+{
+  "Username": "cihan",
+  "Password": "sbb123",
+  "Role": "Admin"
+}
+
+> {% client.global.set("token", response.body.token) %}
+
+### Giris yap (token al)
+POST http://localhost:5021/api/auth/login
+Content-Type: application/json
+
+{
+  "Username": "cihan",
+  "Password": "sbb123"
+}
+
+> {% client.global.set("token", response.body.token) %}
+
+### Authorize gerektiren endpoint (token olmadan - 401 gelmeli)
+GET http://localhost:5021/api/kitap
+
+### Authorize gerektiren endpoint (token ile - 200 gelmeli)
+GET http://localhost:5021/api/kitap
+Authorization: Bearer {{token}}
+
+### Kitap ekle (token ile)
+POST http://localhost:5021/api/kitap
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Title": "Lotr",
+  "YazarId": 1
+}
+
+###
+### --- URUN ---
+
+### Tüm ürünleri getir
 GET http://localhost:5021/api/urun
 
 ### Ürün ekle
@@ -12,14 +57,16 @@ Content-Type: application/json
   "kategoriId": 1
 }
 
-### Ekledikten sonra tekrar getir
-GET http://localhost:5021/api/urun
-
 ### ID ile getir
 GET http://localhost:5021/api/urun/1
 
-### ID ile getir
+###
+### --- KATEGORI ---
+
 GET http://localhost:5021/api/category
+
+###
+### --- YAZAR ---
 
 ### Yazarlari getir
 GET http://localhost:5021/api/yazar
@@ -28,22 +75,16 @@ GET http://localhost:5021/api/yazar
 POST http://localhost:5021/api/yazar
 Content-Type: application/json
 
-{ 
-  "Ad": "Cihan BAS",
+{
+  "Ad": "Cihan",
   "Soyad": "BAS"
 }
 
-### Yazarlar
-GET http://localhost:5021/api/yazar
+###
+### --- KITAP ---
 
-### Kitap ekle
-POST http://localhost:5021/api/Kitap
-Content-Type: application/json
-
-{
-  "Title": "Lotr",
-  "YazarId": 2
-}
-
-### Yazarlar
+### Tum kitaplari getir
 GET http://localhost:5021/api/kitap
+
+### Sifre sifirlama
+GET http://localhost:5021/api/auth/profile

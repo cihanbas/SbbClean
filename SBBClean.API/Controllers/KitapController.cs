@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SBBClean.Application.DTOs;
 using SBBClean.Application.Services;
 
 namespace SBBClean.API.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class KitapController : ControllerBase

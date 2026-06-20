@@ -1,34 +1,30 @@
+using AutoMapper;
 using SBBClean.Application.DTOs;
 using SBBClean.Application.Interfaces;
 using SBBClean.Domain.Entities;
 
 namespace SBBClean.Application.Services;
 
-public class UrunService(IUrunRepository repo, IUnitOfWorks unitOfWorks) : IUrunService
+public class UrunService(IUrunRepository repo, IUnitOfWorks unitOfWorks, IMapper mapper) : IUrunService
 {
     public async Task<List<UrunDto>> GetAllAsync()
     {
         var urunler = await repo.GetAllAsync();
-        return urunler.Select(u => new UrunDto { Id = u.Id, Ad = u.Ad, Fiyat = u.Fiyat,Kategori = u.Kategori==null?null: new CategoryDto{Ad = u.Kategori.Ad,Id = u.Kategori.Id}}).ToList();
+        return mapper.Map<List<UrunDto>>(urunler);
     }
 
     public async Task<UrunDto> GetByIdAsync(int id)
     {
         var urun = await repo.GetByIdAsync(id);
-        if (urun == null)
-        {
-            throw new KeyNotFoundException();
-        }
-        
-        return new UrunDto { Ad = urun.Ad, Fiyat = urun.Fiyat, Kategori = urun.Kategori != null && urun.Kategori.Id != 0?new CategoryDto{Ad =  urun.Kategori.Ad,Id = urun.Kategori.Id}:null };
+        if (urun == null) throw new KeyNotFoundException();
+        return mapper.Map<UrunDto>(urun);
     }
 
-    public async Task<UrunDto> CreateAsync(UrunCreateDto urun)
+    public async Task<UrunDto> CreateAsync(UrunCreateDto dto)
     {
-        var u = new Urun { Ad = urun.Ad, Fiyat = urun.Fiyat, StokAdedi = urun.StokAdedi,KategoriId = urun.kategoriId};
-        await repo.AddAsync(u);
+        var urun = mapper.Map<Urun>(dto);
+        await repo.AddAsync(urun);
         await unitOfWorks.SaveChangesAsync();
-        return new UrunDto
-            { Id = u.Id, Ad = u.Ad, Fiyat = u.Fiyat };
+        return mapper.Map<UrunDto>(urun);
     }
 }

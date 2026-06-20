@@ -1,0 +1,37 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: SBBClean
+      POSTGRES_USER: sbbadmin
+      POSTGRES_PASSWORD: sbb123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sbbadmin -d SBBClean"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: .
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=SBBClean;Username=sbbadmin;Password=sbb123"
+      Jwt__Key: "SBBClean_SuperSecret_Key_2026_MustBe32Chars!!"
+      Jwt__Issuer: "SBBCleanAPI"
+      Jwt__Audience: "SBBCleanClient"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:
